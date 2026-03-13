@@ -80,9 +80,6 @@ function checkAnswer(e){
         prompt_sel.classList.add("hidden");
       }
       
-      // remove prompt error flag
-      prompt_sel.classList.add("hidden");
-
       // if correct, we increase the number of places recalled
       places ++;
 
