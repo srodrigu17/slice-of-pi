@@ -172,9 +172,9 @@ function addTime(){
 }
 
 function convertToSeconds(){
-  hoursInSecond = hour * 3600;
-  minutesInSecond = minute * 60;
-  totalSecond = hoursInSecond + minutesInSecond + second;
+  let hoursInSecond = hour * 3600;
+  let minutesInSecond = minute * 60;
+  let totalSecond = hoursInSecond + minutesInSecond + second;
   return totalSecond;
 }
 
