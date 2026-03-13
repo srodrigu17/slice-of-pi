@@ -137,8 +137,8 @@ function finish(){
 
 function start(){
   // every second, elapsed 
-  addTime()
-  timer = setInterval(addTime, 1000)
+  addTime();
+  timer = setInterval(addTime, 1000);
 }
 
 function convertToString(e){
