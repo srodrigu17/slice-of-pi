@@ -161,7 +161,6 @@ function addTime(){
   if (runningTimer !== 0){
     convertToSeconds();
     if (totalSecond >= runningTimer){
-      error = e.data;
       finish();
     }
   }
