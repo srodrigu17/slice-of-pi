@@ -1,6 +1,5 @@
 // Events
 const startingPoint = sessionStorage.getItem('startingPoint');
-const runningTimer = sessionStorage.getItem('runningTimer');
 const mercy = sessionStorage.getItem('mercy');
 
 const entry_sel = document.querySelector('#entry');
@@ -34,9 +33,6 @@ let second = 0;
 let minute = 0;
 let hour = 0;
 let elapsed;
-let hoursInSecond = 0;
-let minutesInSecond = 0;
-let totalSecond = 0;
 
 let digits = new Set(['0','1','2','3','4','5','6','7','8','9']) 
 
@@ -137,8 +133,8 @@ function finish(){
 
 function start(){
   // every second, elapsed 
-  addTime();
-  timer = setInterval(addTime, 1000);
+  addTime()
+  timer = setInterval(addTime, 1000)
 }
 
 function convertToString(e){
@@ -158,23 +154,10 @@ function addTime(){
     hour++;
     minute = 0;
   }
-  if (runningTimer !== 0){
-    convertToSeconds();
-    if (totalSecond >= runningTimer){
-      finish();
-    }
-  }
   hr.textContent = convertToString(hour);
   min.textContent = convertToString(minute);
   sec.textContent = convertToString(second);
   
-}
-
-function convertToSeconds(){
-  let hoursInSecond = hour * 3600;
-  let minutesInSecond = minute * 60;
-  let totalSecond = hoursInSecond + minutesInSecond + second;
-  return totalSecond;
 }
 
 // run when page opens

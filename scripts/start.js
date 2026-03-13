@@ -2,9 +2,6 @@
 // Get starting decimal place input
 const startingPoint_sel = document.querySelector('#startingPoint');
 
-// Get running timer input
-const runningTimer_sel = document.querySelector('#runningTimer');
-
 // Get start button
 const startBtn_sel = document.querySelector('#start-btn');
 
@@ -22,7 +19,6 @@ const span = document.getElementsByClassName("close")[0];
 
 // initialize variables for setting data
 let startingPoint;
-let runningTimer;
 let mercy;
 
 // When user clicks start button, store the setting data and carry it to the quiz page
@@ -33,7 +29,6 @@ btn.addEventListener("click", function() {
   modal.style.display = "block";
   document.body.style.backgroundColor= "rgba(0,0,0,.4)";
   startingPoint_sel.style.backgroundColor = "rgba(255,255,255,.4)";
-  runningTimer_sel.style.backgroundColor = "rgba(255,255,255,.4)";
 })
 
 // When the user clicks on <span> (x), close the modal
@@ -41,7 +36,6 @@ span.addEventListener("click", function(){
   modal.style.display = "none";
   document.body.style.backgroundColor = "white";
   startingPoint_sel.style.backgroundColor = "rgba(255,255,255,1)";
-  runningTimer_sel.style.backgroundColor = "rgba(255,255,255,1)";
 })
 
 // When the user clicks anywhere outside of the modal, close it
@@ -50,18 +44,13 @@ document.body.onclick = function(event) {
     modal.style.display = "none";
     document.body.style.backgroundColor = "white";
     startingPoint_sel.style.backgroundColor = "rgba(255,255,255,1)";
-    runningTimer_sel.style.backgroundColor = "rgba(255,255,255,1)";
   }
 } 
 
 function setStart(e){
   startingPoint = startingPoint_sel.value;
-  runningTimer = runningTimer_sel.value;
   mercy = mercy_sel.checked;
   sessionStorage.setItem('startingPoint', startingPoint);
-  sessionStorage.setItem('runningTimer', runningTimer);
   sessionStorage.setItem('mercy', mercy);
   window.location.replace("quiz.html");
 }
-
-
