@@ -1,5 +1,6 @@
 // Events
 const startingPoint = sessionStorage.getItem('startingPoint');
+const runningTimer = sessionStorage.getItem('runningTimer');
 const mercy = sessionStorage.getItem('mercy');
 
 const entry_sel = document.querySelector('#entry');
@@ -154,10 +155,23 @@ function addTime(){
     hour++;
     minute = 0;
   }
+  if (runningTimer !== 0){
+    convertToSeconds();
+    if (totalSecond === runningTimer){
+      finish();
+    }
+  }
   hr.textContent = convertToString(hour);
   min.textContent = convertToString(minute);
   sec.textContent = convertToString(second);
   
+}
+
+function convertToSeconds(){
+  const hoursInSecond = hour * 3600;
+  const minutesInSecond = minute * 60;
+  const totalSecond = hoursInSecond + minutesInSecond + second;
+  return totalSecond;
 }
 
 // run when page opens
