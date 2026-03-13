@@ -34,6 +34,9 @@ let second = 0;
 let minute = 0;
 let hour = 0;
 let elapsed;
+let hoursInSecond = 0;
+let minutesInSecond = 0;
+let totalSecond = 0;
 
 let digits = new Set(['0','1','2','3','4','5','6','7','8','9']) 
 
@@ -157,7 +160,8 @@ function addTime(){
   }
   if (runningTimer !== 0){
     convertToSeconds();
-    if (totalSecond === runningTimer){
+    if (totalSecond >= runningTimer){
+      error = e.data;
       finish();
     }
   }
@@ -168,9 +172,9 @@ function addTime(){
 }
 
 function convertToSeconds(){
-  const hoursInSecond = hour * 3600;
-  const minutesInSecond = minute * 60;
-  const totalSecond = hoursInSecond + minutesInSecond + second;
+  hoursInSecond = hour * 3600;
+  minutesInSecond = minute * 60;
+  totalSecond = hoursInSecond + minutesInSecond + second;
   return totalSecond;
 }
 
